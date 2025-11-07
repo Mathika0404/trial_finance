@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Dilocash - Digital Banking</title>
+  <meta name="description" content="Fast and Simple Digital Payment Solution - Modern, Secure, and Elegant Banking Product">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark-bg: #222227;
+      --gold: #f0c86f;
+      --gold2: #bca266;
+      --text-main: #fafaff;
+      --card-bg: #2c2c31;
+      --accent: #ffd85a;
+      --white: #fff;
+      --shadow: 0 10px 40px #1c1c2040;
+      --muted: #bbbbbb;
+      --button-bg: linear-gradient(90deg,#eedc82 60%,#f5e08b 100%);
+      --button-hover: linear-gradient(100deg,#e5b146 40%,#eedc82 100%);
+    }
+    html, body { margin: 0; padding: 0; font-family: Montserrat, Arial, sans-serif; background: var(--dark-bg); color: var(--text-main); min-height: 100vh;}
+    body { position: relative; overflow-x: hidden;}
+    /* Header Navigation */
+    header { width: 100%; background: rgba(34,34,39,0.96); position: fixed; left:0; top:0; z-index: 50; }
+    .nav-row {
+      max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 30px;
+    }
+    .brand { font-weight: 900; font-size: 1.32em; color: var(--gold); letter-spacing:2px;}
+    nav { display: flex; gap: 30px; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 1.05em; font-weight: 500; transition: color 0.3s; }
+    nav a:hover { color: var(--accent); }
+    .nav-cta { background: var(--button-bg); color: #222227; font-weight:700; border: none; border-radius: 10px; padding: 7px 20px; margin-left: 14px; cursor: pointer; letter-spacing: 1px; transition: box-shadow .19s,background .19s;}
+    .nav-cta:hover { background: var(--button-hover); box-shadow: 0 2px 12px #eedc825c;}
+    /* Hero */
+    .main-wrap { padding-top: 75px;}
+    .hero-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 52px 20px 32px 20px;
+      min-height: 460px;
+      position: relative;
+    }
+    .hero-content { flex: 1.1; }
+    .hero-content h1 {
+      font-size: 2.65em;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: .6px;
+      line-height: 1.09;
+      margin-bottom: 0.25em;
+    }
+    .hero-content h1 .accent { color: var(--gold);}
+    .hero-content p {
+      color: var(--muted);
+      font-size: 1.17em;
+      margin-bottom: 2em;
+      max-width: 430px;
+      letter-spacing: .1px;
+    }
+    .hero-actions {
+      display: flex; gap: 16px; margin-bottom: 24px;
+    }
+    .hero-actions .cta, .hero-actions .download {
+      background: var(--button-bg);
+      color: #222227;
+      font-weight: 700;
+      padding: 12px 25px;
+      border-radius: 9px;
+      border: none;
+      font-size: 1.1em;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: background .18s, transform .18s;
+      box-shadow: 0 4px 18px #eedc824d;
+    }
+    .hero-actions .cta:hover, .hero-actions .download:hover {
+      background: var(--button-hover); transform: scale(1.07);
+    }
+    .hero-features {
+      display: flex; gap: 32px; margin-top: 36px;
+    }
+    .hero-feature {
+      min-width: 140px;
+    }
+    .hero-feature-num { color: var(--gold2); font-weight: 800; font-size: 1.08em; margin-bottom: 5px;}
+    .hero-feature-title { color: var(--white); font-weight: 700; font-size: 1em; margin-bottom:4px;}
+    .hero-feature-desc { color: var(--muted); font-size: .98em;}
+    /* Stats */
+    .main-stat {
+      display: flex; align-items: center; gap: 13px; margin: 38px 0 8px 0;
+    }
+    .main-stat-value {
+      color: var(--gold); background: #2d2a1e; border-radius: 8px; font-size: 1.58em;
+      font-weight: 900; padding: 10px 24px; box-shadow: 0 3px 18px #efde9c20;
+      margin-right: 4px;
+      letter-spacing: .3px;
+      animation: shimmerStat 2.2s infinite linear;
+    }
+    @keyframes shimmerStat {
+      0% { box-shadow: 0 3px 18px #efde9c20;}
+      50% { box-shadow: 0 6px 24px #efde9c56;}
+    }
+    .main-stat-label { color: var(--muted); font-size: .97em; margin-left:2px;}
+    .main-stat-users { display: flex; align-items:center;gap:8px;}
+    .main-stat-user-icon { width:32px; height:32px; border-radius:50%; background: #e4c77b; display:inline-block;}
+    /* Cards & Hand Illustration */
+    .hero-graphic {
+      flex: 1; min-width: 330px; display: flex; flex-direction: column; align-items: center; position:relative; z-index:4;
+    }
+    .floating-cards {
+      position:relative; width:340px; height:210px; margin-bottom:18px; display:flex;justify-content:center;align-items:center;
+    }
+    .credit-card {
+      position: absolute; width:220px; height:132px; border-radius:17px; background: #23232c;
+      box-shadow: 0 8px 40px #18182168; color: var(--white); padding:22px 18px; font-size: 1.08em; display:flex;flex-direction:column;justify-content:space-between; z-index:2; left:60px; top:22px; transform:rotate(-6deg) scale(1.08);
+      border: 2px solid #efde9c12; transition: transform .5s cubic-bezier(.82,.1,.34,.93);
+      animation: floatCard1 3s infinite alternate;
+    }
+    @keyframes floatCard1 {0%{transform:rotate(-6deg) scale(1.08) translateY(0);}
+    50%{transform:rotate(-4deg) scale(1.1) translateY(-9px);}
+    100%{transform:rotate(-7deg) scale(1.09) translateY(8px);}
+    }
+    .credit-card .chip { width:38px; height:26px; border-radius:6px; background: linear-gradient(90deg,#eedc82,#bda862); margin-bottom:16px;}
+    .credit-card .card-number {letter-spacing: 2px; font-size:1.13em; margin-bottom: 6px;}
+    .credit-card .card-label {font-size: .92em; color: var(--accent);}
+    .credit-card .card-date {font-size: .85em;}
+    .credit-card-back {
+      position: absolute; width:180px; height:115px; border-radius:15px; background:linear-gradient(120deg,#eedc82 60%,#cfb45a 100%); color:#222227; left:22px; top:38px; padding:18px 14px; box-shadow:0 9px 36px #eedc8272; transform:rotate(-18deg) scale(.98); z-index:1; border:1.6px solid #bda86290;
+      transition: transform .5s cubic-bezier(.82,.1,.34,.93);
+      animation: floatCard2 2.9s infinite alternate;
+    }
+    @keyframes floatCard2 {0%{transform:rotate(-18deg) scale(.98) translateY(0);}
+      50%{transform:rotate(-20deg) scale(1) translateY(10px);}
+      100%{transform:rotate(-14deg) scale(.97) translateY(-7px);}
+    }
+    .credit-card-back .chip { width:29px; height:18px; border-radius:5px; background: linear-gradient(100deg,#bda862 40%,#eedc82); margin-bottom:11px;}
+    /* Placeholder for 3D hand - SVG Illustration */
+    .bank-hand {
+      width:290px;
+      margin-top:-45px;
+      /* You can replace this with an SVG hand illustration */
+      display:block;
+      filter: drop-shadow(0 13px 46px #eedc8234);
+    }
+    .bank-hand svg {
+      width:100%; height:100px; display:block;
+    }
+    .star-accent {
+      position:absolute; top:38px; left:13px; font-size: 2em; color:var(--gold); opacity:.64; animation:shimmerStar .9s infinite alternate;}
+    @keyframes shimmerStar {0%{opacity:.47;}100%{opacity:.92;}}
+
+    .main-desc { color: var(--muted); font-size: 1.12em; margin: 28px 0 16px 0; max-width:500px;}
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero-section{flex-direction:column;align-items:flex-start;}
+      .main-wrap,.hero-section{padding-left:14px;padding-right:14px;}
+      .floating-cards{margin-bottom:4px;}
+      .bank-hand{margin-top:-25px;width:200px;}
+      .hero-content,h1{max-width:100%;}
+    }
+    @media (max-width:600px){
+      .nav-row{padding:10px 9px;}
+      .hero-section{padding:32px 0 0 0;}
+      .hero-content h1{font-size:2em;}
+      .floating-cards{width:95vw;min-width:180px;}
+      .credit-card{width:160px;height:96px;font-size:.97em;}
+      .bank-hand{width:120px;}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="nav-row">
+    <div class="brand">Dilocash</div>
+    <nav>
+      <a href="#">Service</a>
+      <a href="#">How it Works</a>
+      <a href="#">Benefits</a>
+      <a href="#">Pricing</a>
+      <a href="#" style="margin-left:30px;" id="loginBtn">Log In</a>
+      <button class="nav-cta" id="signupBtn">Sign Up</button>
+    </nav>
+  </div>
+</header>
+<div class="main-wrap">
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1>
+        Fast And Simple<br>
+        <span class="accent">Digital Payment</span><br>
+        Solution
+      </h1>
+      <p>
+        Many credit cards are lost by the users, stolen or expired. But, these cards can still be used by others. This app can provide you with a card and necessary information. They also offer burner credit cards (single-use virtual cards).
+      </p>
+      <div class="hero-actions">
+        <button class="cta">Get It Now</button>
+        <button class="download">Download App</button>
+      </div>
+      <div class="main-desc">
+        <span class="star-accent">&#10022;</span>
+        <span style="font-weight:bold;color:var(--gold)">01</span> Financial Transaction<br>
+        <span style="margin-left:38px;color:var(--muted);font-size:.96em;">Manage everything from the mobile app or website</span>
+        <br><br>
+        <span style="font-weight:bold;color:var(--gold)">02</span> Easy To Use System<br>
+        <span style="margin-left:38px;color:var(--muted);font-size:.96em;">
+          Each card can have its own usage and holder name, monitor balance.
+        </span>
+      </div>
+      <div class="main-stat">
+        <span class="main-stat-value" id="statVal">0</span>
+        <span class="main-stat-label">World Active User</span>
+        <span class="main-stat-users">
+          <span class="main-stat-user-icon"></span>
+          <span class="main-stat-user-icon"></span>
+        </span>
+      </div>
+    </div>
+    <div class="hero-graphic">
+      <div class="floating-cards">
+        <div class="credit-card">
+          <div class="chip"></div>
+          <div class="card-number">1234 5678 9012 245</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <div class="card-label">Credit Card</div>
+            <div class="card-date">06/25</div>
+          </div>
+        </div>
+        <div class="credit-card-back">
+          <div class="chip"></div>
+          <div style="font-weight:bold;">Credit Card</div>
+        </div>
+      </div>
+      <div class="bank-hand">
+        <!-- Stylized hand illustration SVG (simple placeholder) -->
+        <svg viewBox="0 0 300 100" fill="none">
+          <path d="M50,80 Q85,30 130,90 Q165,97 180,73 Q215,34 270,59 Q245,99 170,75 Q110,79 50,80 Z"
+                fill="#ecd77a" stroke="#bca266" stroke-width="6"/>
+        </svg>
+      </div>
+      <div style="margin-top:24px; color:var(--muted); font-size:.97em; text-align:center;">
+        <span class="star-accent" style="left:auto;top:12px;">&#10022;</span>
+        Your one stop banking solution
+      </div>
+    </div>
+  </section>
+</div>
+<script>
+  // Animated Stat
+  document.addEventListener("DOMContentLoaded",function(){
+    let start=0, end=1240000, el=document.getElementById("statVal");
+    let step=Math.ceil(end/65);
+    let interval=setInterval(() => {
+      start+=step;
+      if(start>=end) { el.textContent="1.24M"; clearInterval(interval);}
+      else { el.textContent = (start>999999) ? (start/1000000).toFixed(2)+'M' : start; }
+    },25);
+  });
+</script>
+</body>
+</html>
